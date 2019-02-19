@@ -1,0 +1,62 @@
+{
+  "name": "react-year-month-picker",
+  "version": "1.0.0",
+  "description": "A react year month date picker component",
+  "main": "lib/YearMonthPicker.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/StevenIseki/react-year-month-picker.git"
+  },
+  "author": "Steven Iseki <stevenisekimartin@gmail.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^16.0.0"
+  },
+  "dependencies": {
+    "moment-timezone": "^0.5.23",
+    "prop-types": "^15.6.0",
+    "styled-jsx": "3.2.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "7.3.3",
+    "@babel/preset-env": "7.3.1",
+    "@babel/preset-react": "7.0.0",
+    "babel-loader": "8.0.5",
+    "babel-tape-runner": "^3.0.0",
+    "enzyme": "3.9.0",
+    "enzyme-adapter-react-16": "^1.9.1",
+    "expect": "24.1.0",
+    "html-webpack-plugin": "3.2.0",
+    "jsdom": "13.2.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "tape": "4.10.1",
+    "webpack": "4.29.4",
+    "webpack-cli": "3.2.3",
+    "webpack-dev-server": "3.1.14"
+  },
+  "scripts": {
+    "build": "babel src --out-dir lib",
+    "dev": "webpack-dev-server --mode=development --port 3000 --inline --hot --config example/webpack.config",
+    "test": "babel-tape-runner test/*.js"
+  },
+  "keywords": [
+    "react",
+    "react-year-month-picker",
+    "react year month picker",
+    "react-year-month-date-picker",
+    "react year month",
+    "year month picker",
+    "year month date picker",
+    "react-year-date-picker",
+    "react date",
+    "react year date",
+    "react date picker",
+    "react-date-picker",
+    "react year picker",
+    "react-year-picker",
+    "reactjs",
+    "react-component"
+  ]
+}
