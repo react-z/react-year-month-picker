@@ -36,8 +36,10 @@ export default class YearMonthPicker extends Component {
   constructor(props) {
     super(props)
     const currentTime = new Date()
-    const startYear = currentTime.getFullYear()
-    const startMonth = Object.keys(MONTHS_NAMES)[currentTime.getMonth()]
+    const startYear = props.currentYearMonth ? currentTime.getFullYear() : props.defaultYear
+    const startMonth = props.currentYearMonth
+      ? Object.keys(MONTHS_NAMES)[currentTime.getMonth()]
+      : Object.keys(MONTHS_NAMES)[props.defaultMonth - 1]
 
     this.state = {
       years: Array.from({ length: 12 }, (_v, k) => k + startYear),
@@ -148,7 +150,9 @@ export default class YearMonthPicker extends Component {
   }
 
   updateYears(startYear) {
-    const years = Array.from({ length: 12 }, (_v, k) => k + startYear)
+    const years = Array.from({ length: 12 }, (_v, k) => {
+      return k + startYear
+    })
     this.setState({ years })
   }
 
@@ -191,9 +195,10 @@ export default class YearMonthPicker extends Component {
     const { selectedYear, selectedMonth } = this.state
 
     return this.state.years.map((year, i) => {
+      let cname = (year < this.props.minYear) || (year > this.props.maxYear) ? "column-disabled" : "column"
       return (
         <div
-          className="column"
+          className={cname}
           selected={selectedYear === year}
           key={i}
           onClick={() => {
@@ -213,6 +218,15 @@ export default class YearMonthPicker extends Component {
             .column:hover {
               background-color: #ececec;
             }
+            .column-disabled {
+              pointer-events:none;
+              font-size: 16px;
+              padding: 5px 0;
+              color:grey;
+              text-align: center;
+              width: 33.33%;
+              
+            }
           `}</style>
         </div>
       )
@@ -227,7 +241,10 @@ export default class YearMonthPicker extends Component {
         <div
           className="column"
           id="picker-prev"
-          onClick={this.previous.bind(this)}
+          onClick={() => {
+            if (this.state.years[0] > this.props.minYear)
+              this.previous()
+          }}
         >
           &lt;
         </div>
@@ -243,7 +260,11 @@ export default class YearMonthPicker extends Component {
           {`${selectedMonth} ${selectedYear}`}
         </div>
 
-        <div className="column" id="picker-next" onClick={this.next.bind(this)}>
+        <div className="column" id="picker-next" onClick={() => {
+          if (this.state.years[11] < this.props.maxYear)
+            this.next()
+
+        }}>
           &gt;
         </div>
 
@@ -277,7 +298,7 @@ export default class YearMonthPicker extends Component {
           className="input"
           id="picker-input"
           onClick={() => this.open()}
-          onChange={() => {}}
+          onChange={() => { }}
           type="text"
           value={`${MONTHS_NAMES[selectedMonth]} ${selectedYear}`}
         />
