@@ -55,11 +55,16 @@ If the year month picker should close on date selection.
 
 ## Development
     yarn
-    npm run dev
+    yarn dev
+
+## Test
+    yarn test
 
 ## Build
     yarn
-    npm run build
+    yarn build
+
+## Publish
     npm login
     npm version patch
     git add -A

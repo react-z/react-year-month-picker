@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`YearMonthPicker renders correctly and matches snapshot 1`] = `
+<div
+  className="jsx-1876002214"
+  onClick={[Function]}
+>
+  <input
+    className="jsx-1876002214 input"
+    id="picker-input"
+    onChange={[Function]}
+    onClick={[Function]}
+    type="text"
+    value="April 2019"
+  />
+</div>
+`;
