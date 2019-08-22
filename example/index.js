@@ -16,6 +16,11 @@ class TestComponent extends Component {
     return (
       <div>
         <YearMonthPicker
+          // currentYearMonth
+          defaultYear = {2018}
+          defaultMonth = {3}
+          minYear = {2015}
+          maxYear = {2030}
           closeOnSelect
           onChange={this.handleChange.bind(this)}
         />
