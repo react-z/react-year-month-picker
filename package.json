@@ -15,7 +15,7 @@
   "dependencies": {
     "moment-timezone": "^0.5.23",
     "prop-types": "^15.6.0",
-    "styled-jsx": "3.2.1"
+    "styled-jsx": "5.1.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
@@ -27,7 +27,7 @@
     "enzyme": "3.9.0",
     "enzyme-adapter-react-16": "^1.9.1",
     "expect": "24.1.0",
-    "html-webpack-plugin": "3.2.0",
+    "html-webpack-plugin": "5.5.0",
     "jest": "^24.7.1",
     "jsdom": "13.2.0",
     "react": "^16.0.0",
